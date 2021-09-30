@@ -57,7 +57,7 @@ const Acceptation = () => {
   }, []);
 
   const classes = useStyles();
-
+  const acceptationRef = firebase.firestore().collection("Accepted");
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -68,6 +68,15 @@ const Acceptation = () => {
               validationSchema={FORM_VALIDATION}
               onSubmit={(values) => {
                 console.log(values);
+                acceptationRef.doc(values.postTitle).set({
+                  nom: values.lastName,
+                  poste: values.postTitle,
+                  exp: values.experience,
+                  niveau: values.studyLevel,
+                  mail: values.email,
+                  room: values.room,
+                  dateInter: values.interviewDate,
+                });
               }}
             >
               <Form>
@@ -85,7 +94,7 @@ const Acceptation = () => {
                     <TextFieldComponent name="firstName" label="First Name" />
                   </Grid>
                   <Grid item xs={6}>
-                    <TextFieldComponent name="lastName" label="First Name" />
+                    <TextFieldComponent name="lastName" label="Last Name" />
                   </Grid>
                   <Grid item xs={12}>
                     <TextFieldComponent name="email" label="E-mail" />
