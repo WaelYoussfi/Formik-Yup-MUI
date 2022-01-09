@@ -1,3 +1,4 @@
+This small project is consisted of some forms I designed using MUI and implemented through react and Formik. I used yup as a validation library.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
